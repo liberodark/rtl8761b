@@ -15,12 +15,10 @@ echo "Welcome on FW Installer $version"
 
 if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
 
-
 #=================================================
 # RETRIEVE ARGUMENTS FROM THE MANIFEST AND VAR
 #=================================================
 folder="/usr/lib/firmware/rtl_bt"
-
 
 usage ()
 {
@@ -41,7 +39,6 @@ rtl8761bu_fw"
 for fw in $fw_list
     do
         if [ ! -e "${folder}/${fw}".bin.bak ]; then
-            
             mv "${folder}/${fw}.bin" "${folder}/${fw}.bin.bak"
             echo "Backup Firmware Done"
         else
@@ -52,20 +49,20 @@ done
 
 # Restore Firmware
 restore_fw(){
-cp -a "${folder}/rtl8761b_config.bin.bak" "${folder}/rtl8761b_config.bin" || exit
-cp -a "${folder}/rtl8761b_fw.bin.bak" "${folder}/rtl8761b_fw.bin" || exit
-cp -a "${folder}/rtl8761bu_config.bin.bak" "${folder}/rtl8761bu_config.bin" || exit
-cp -a "${folder}/rtl8761bu_fw.bin.bak" "${folder}/rtl8761bu_fw.bin" || exit
-echo "Uninstall Firmware Done"
+    cp -a "${folder}/rtl8761b_config.bin.bak" "${folder}/rtl8761b_config.bin" || exit
+    cp -a "${folder}/rtl8761b_fw.bin.bak" "${folder}/rtl8761b_fw.bin" || exit
+    cp -a "${folder}/rtl8761bu_config.bin.bak" "${folder}/rtl8761bu_config.bin" || exit
+    cp -a "${folder}/rtl8761bu_fw.bin.bak" "${folder}/rtl8761bu_fw.bin" || exit
+    echo "Uninstall Firmware Done"
 }
 
 # Install Firmware
 install_fw(){
-cp -a ./rtl8761b_config.bin "${folder}/" || exit
-cp -a ./rtl8761b_fw.bin "${folder}/" || exit
-cp -a ./rtl8761bu_config.bin "${folder}/" || exit
-cp -a ./rtl8761bu_fw.bin "${folder}/" || exit
-echo "Install Firmware Done"
+    cp -a ./rtl8761b_config.bin "${folder}/" || exit
+    cp -a ./rtl8761b_fw.bin "${folder}/" || exit
+    cp -a ./rtl8761bu_config.bin "${folder}/" || exit
+    cp -a ./rtl8761bu_fw.bin "${folder}/" || exit
+    echo "Install Firmware Done"
 }
 
 parse_args ()
