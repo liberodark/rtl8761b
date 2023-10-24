@@ -1,7 +1,7 @@
 # rtl8761b
-Old Fimware for TP Link USB500
+Old Fimware for TP Link UB500
 
-# SHA256
+### SHA256
 
 ```
 6ddeb15f23588053e00cb08d25588bd7cf98d60fa93d9478efcef4ae8064a7ac  rtl8761b_config.bin
